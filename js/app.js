@@ -3,6 +3,7 @@ angular.module('waitstaffCalc', [])
 .controller('tipCtrl', function($scope, $rootScope){
 	$scope.clear = function(){
 		$scope.input = '';
+		$rootScope.$broadcast('clearOutput');
 	};
 	$scope.setData = function(){
 		console.log($scope.input);
@@ -30,12 +31,19 @@ angular.module('waitstaffCalc', [])
 			total: 0
 		};
 	});
+
+	$scope.$on('clearOutput', function(event, data) {
+		$scope.output = {
+			subtotal: 0,
+			tip: 0,
+			total: 0
+		};
+	});
 })
 
 .controller('earningsCtrl', function($scope) {
 	var count = 0;
 	var total = 0;
-	var tipsArray = [];
 	$scope.$on('output', function(event, data) {
 		total = total+data.tip;
 		count++;
