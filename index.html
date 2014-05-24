@@ -6,17 +6,24 @@
 	<script type="text/javascript" src="js/app.js"></script>
 	<title>Waitstaff Calculator</title>
 </head>
-<body>
-	<form novalidate>
+<body ng-controller="tipCtrl">
+	<form ng-submit='setData()' novalidate>
 		<input type="number" name="mealprice" ng-model="input.mealPrice">
 		<input type="number" name="taxrate" ng-model="input.taxRate">
 		<input type="number" name="tippercentage" ng-model="input.tipPercentage">
 		<input type="submit" text="Submit" id="submit"> 
 	</form>
-	<div>
+	<button ng-click='clear();'>Cancel</button>
+	<div ng-controller="resultsCtrl">
 		<input type="text" name="subtotal" ng-model="output.subtotal" readonly />
 		<input type="text" name="tip" ng-model="output.tip" readonly />
 		<input type="text" name="total" ng-model="output.total" readonly />
 	</div>
+	<div ng-controller="earningsCtrl">
+		Total Tips:{{earnings.tips | currency}}
+		Total Meals:{{earnings.meals | number}}
+		Average Tip Per Meal:{{earnings.average | currency}}
+	</div>
+	<button ng-controller="clearCtrl" ng-click='clear()'>Reset</button>
 </body>
 </html>
