@@ -15,9 +15,9 @@
 	</form>
 	<button ng-click='clear();'>Cancel</button>
 	<div ng-controller="resultsCtrl">
-		<input type="text" name="subtotal" ng-model="output.subtotal" readonly />
-		<input type="text" name="tip" ng-model="output.tip" readonly />
-		<input type="text" name="total" ng-model="output.total" readonly />
+		Subtotal:{{output.subtotal | currency}}
+		Tip: {{output.tip | currency}}
+		Total: {{output.total | currency}}
 	</div>
 	<div ng-controller="earningsCtrl">
 		Total Tips:{{earnings.tips | currency}}

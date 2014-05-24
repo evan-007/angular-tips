@@ -24,7 +24,11 @@ angular.module('waitstaffCalc', [])
 		$rootScope.$broadcast('output', $scope.output);
 	});
 	$scope.$on('clearAll', function(event, data) {
-		$scope.output = '';
+		$scope.output = {
+			subtotal: 0,
+			tip: 0,
+			total: 0
+		};
 	});
 })
 
