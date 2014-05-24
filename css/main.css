@@ -42,7 +42,7 @@
 .bottom {
 	height: auto;
 	border: 2px solid black;
-	/*border-radius: 3px;*/
+	border-radius: 3px;
 	margin-top: 20px;
 }
 
@@ -52,6 +52,10 @@
 
 .percent {
 	width: 45px;
+}
+
+.mealprice {
+	width: 60px;
 }
 
 .buttons {
@@ -71,13 +75,7 @@
 	border: 2px solid red;
 }
 
-input {
-	text-align: left;
-}
 
-label {
-	margin-left: 15px;
-}
 
 #line {
 	width: 50%;
@@ -85,7 +83,7 @@ label {
 }
 
 #clear {
-	float: right;
+	text-align: right;
 	margin-right: -5px;
 	margin-top: 10px;
 }

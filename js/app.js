@@ -15,6 +15,11 @@ angular.module('waitstaffCalc', [])
 })
 
 .controller('resultsCtrl', function($scope, $rootScope) {
+	$scope.output = {
+		subtotal: 0,
+		tip: 0,
+		total: 0
+	};
 	$scope.$on('input', function(event, data){
 		console.log(data);
 		$scope.output = {
@@ -42,6 +47,11 @@ angular.module('waitstaffCalc', [])
 })
 
 .controller('earningsCtrl', function($scope) {
+	$scope.earnings = {
+		tips: 0,
+		meals: 0,
+		average: 0
+	};
 	var count = 0;
 	var total = 0;
 	$scope.$on('output', function(event, data) {

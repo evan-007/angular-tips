@@ -14,7 +14,7 @@
 			<h2>Enter the Meal Details</h2>
 			<form name="inputForm" ng-submit='inputForm.$valid && setData()' novalidate>
 				<label for="mealprice">Base Meal Price: $</label>
-				<input type="number" name="mealprice" ng-model="input.mealPrice" placeholder="0.00" required><br>
+				<input type="number" class="mealprice"name="mealprice" ng-model="input.mealPrice" placeholder="0.00" required><br>
 				<label for="mealprice">Tax Rate: %</label>
 				<input type="number" name="taxrate" ng-model="input.taxRate" placeholder="0" class="percent" required><br>
 				<label for="tippercentage">Tip Percentage: %</label>
