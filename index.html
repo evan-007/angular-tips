@@ -19,18 +19,21 @@
 				<input type="number" name="taxrate" ng-model="input.taxRate" placeholder="0" class="percent" required><br>
 				<label for="tippercentage">Tip Percentage: %</label>
 				<input type="number" name="tippercentage" ng-model="input.tipPercentage" placeholder="0" class="percent" required><br>
+				<span ng-if="inputForm.mealprice.$dirty && inputForm.mealprice.$invalid || inputForm.mealprice.$pristine">Fill out meal price</span><br>
+				<span ng-if="inputForm.taxrate.$dirty && inputForm.taxrate.$invalid || inputForm.taxrate.$pristine">Fill out taxrate</span><br>
+				<span ng-if="inputForm.tippercentage.$invalid || inputForm.tippercentage.$pristine">Fill out tip percentage</span><br>
 				<div class="buttons">
 					<button type="submit" text="Submit" id="submit">Submit</button>
 					<button type="button" ng-click='clear(); preventDefault();'>Cancel</button>
 				</div>
 			</form>
-			<p ng-show="inputForm.$invalid">Fill out the form please</p>
 		</div>
+
 		<div class='right-block'>
 			<div class='top'>
 				<h2>Customer Charges</h2>
 				<div ng-controller="resultsCtrl">
-					<div class="aligntext">
+					<div class="aligntext results">
 						Subtotal:{{output.subtotal | currency}}<br/>
 						Tip: {{output.tip | currency}}<br/>
 						<hr id='line'><br/>
@@ -43,7 +46,7 @@
 			<div class='bottom'>
 				<h2>My Earnings Info</h2>
 				<div ng-controller="earningsCtrl">
-					<div class="aligntext">
+					<div class="aligntext data">
 						Total Tips:{{earnings.tips | currency}}<br/>
 						Total Meals:{{earnings.meals | number}}<br/>
 						Average Tip Per Meal:{{earnings.average | currency}}<br/>
