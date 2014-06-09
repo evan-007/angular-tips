@@ -85,9 +85,9 @@ input .ng-dirty.ng-invalid{
 }
 
 #clear {
-	text-align: right;
 	margin-right: -5px;
 	margin-top: 10px;
+  float: right;
 }
 
 .aligntext {
