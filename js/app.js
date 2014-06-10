@@ -1,4 +1,18 @@
-angular.module('waitstaffCalc', [])
+angular.module('waitstaffCalc', ['ngRoute'])
+
+.config(function($routeProvider){
+	$routeProvider.when('/', {
+		templateUrl : './templates/home.html'
+	})
+	.when('/new-meal', {
+		templateUrl : './templates/tips.html',
+		controller: 'tipCtrl'
+	})
+	.when('/my-earnings', {
+		templateUrl : './templates/earnings.html',
+		controller : 'earningsCtrl'
+	});
+})
 
 .controller('tipCtrl', function($scope, $rootScope){
 	$scope.clear = function(){

@@ -1,0 +1,11 @@
+<div class='bottom'>
+	<h2>My Earnings Info</h2>
+	<div ng-controller="earningsCtrl">
+		<div class="aligntext data">
+			Total Tips:{{earnings.tips | currency}}<br/>
+			Total Meals:{{earnings.meals | number}}<br/>
+			Average Tip Per Meal:{{earnings.average | currency}}<br/>
+		</div>
+	</div>
+</div>
+<button id="clear" ng-controller="clearCtrl" ng-click='clear()'>Reset</button>
