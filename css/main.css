@@ -34,7 +34,7 @@
 	height: 120px;
 }
 
-.left-block h2, .right-block h2 {
+.left-block h2, .right-block h2, .earnings h2 {
 	font-size: 1.5em;
 	border-bottom: 2px solid black;
 	border-radius: 3px 0 0 0;
@@ -54,6 +54,15 @@
 	border-radius: 3px;
 	display: block;
 	margin: 20px auto 0 auto;
+}
+
+.earnings {
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	width: 300px;
+	border: 2px solid black;
+	border-radius: 3px;
 }
 
 .left-block input {
@@ -95,9 +104,9 @@ input .ng-dirty.ng-invalid{
 }
 
 #clear {
-	text-align: right;
-	margin-right: -5px;
-	margin-top: 10px;
+	text-align: center;
+	display: block;
+	margin: 15px auto 0 auto;
 }
 
 .aligntext {

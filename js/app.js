@@ -11,7 +11,8 @@ angular.module('waitstaffCalc', ['ngRoute'])
 	.when('/my-earnings', {
 		templateUrl : './templates/earnings.html',
 		controller : 'earningsCtrl'
-	});
+	})
+	.otherwise({redirectTo: '/'});
 })
 
 .controller('tipCtrl', function($scope, $rootScope){
@@ -28,20 +29,21 @@ angular.module('waitstaffCalc', ['ngRoute'])
 	});
 })
 
-.controller('resultsCtrl', function($scope, $rootScope) {
+.controller('resultsCtrl', function($scope, $rootScope, tipData) {
 	$scope.output = {
 		subtotal: 0,
 		tip: 0,
 		total: 0
 	};
 	$scope.$on('input', function(event, data){
-		console.log(data);
 		$scope.output = {
 			subtotal: (data.taxRate/100 * data.mealPrice) + data.mealPrice,
 			tip: (data.tipPercentage/100 * data.mealPrice),
 			total: ((data.taxRate/100 * data.mealPrice) + data.mealPrice) + ((data.tipPercentage/100 * data.mealPrice))
 		};
 		$rootScope.$broadcast('output', $scope.output);
+		$scope.tips = tipData;
+		$scope.tips.tip = $scope.output.tip;
 	});
 	$scope.$on('clearAll', function(event, data) {
 		$scope.output = {
@@ -60,7 +62,8 @@ angular.module('waitstaffCalc', ['ngRoute'])
 	});
 })
 
-.controller('earningsCtrl', function($scope) {
+.controller('earningsCtrl', function($scope, tipData) {
+	$scope.tip = tipData;
 	$scope.earnings = {
 		tips: 0,
 		meals: 0,
@@ -90,4 +93,8 @@ angular.module('waitstaffCalc', ['ngRoute'])
 	$scope.clear = function() {
 		$rootScope.$broadcast('clearAll');
 	};
+})
+
+.service('tipData', function(){
+	return {};
 });
