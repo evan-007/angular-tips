@@ -1,4 +1,4 @@
-angular.module('waitstaffCalc', ['ngRoute'])
+angular.module('waitstaffCalc', ['ngRoute', 'ngAnimate'])
 
 .config(function($routeProvider){
 	$routeProvider.when('/', {

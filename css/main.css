@@ -122,3 +122,24 @@ input .ng-dirty.ng-invalid{
 	width: 70%;
 	text-align: right;
 }
+
+.content-view.ng-enter, .contentView.ng-leave {
+  transition: .5s all linear;
+  position: relative;
+}
+
+.content-view.ng-enter {
+  left: -100%;
+}
+
+.content-view.ng-enter.ng-enter-active {
+  left: 0;
+}
+
+.content-view.ng-leave {
+  right: 0;
+}
+
+.content-view.ng-leave.ng-leave-active {
+  right: 100%;
+}
