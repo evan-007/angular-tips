@@ -23,6 +23,15 @@ angular.module('waitstaffCalc', ['ngRoute'])
     $scope.output.tip = ($scope.input.tipPercentage/100) *($scope.input.mealPrice);
     $scope.output.total = $scope.output.tip + $scope.output.subtotal;
   }
+  
+  $scope.clearInput = function(){
+    $scope.input = '';
+    $scope.output = '';
+  }
+})
+
+.controller('earningsCtrl', function($scope, tipData){
+  
 })
 
 .service('tipData', function(){
