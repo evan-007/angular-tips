@@ -104,15 +104,9 @@ input .ng-dirty.ng-invalid{
 }
 
 #clear {
-<<<<<<< HEAD
-	margin-right: -5px;
-	margin-top: 10px;
-  float: right;
-=======
 	text-align: center;
 	display: block;
 	margin: 15px auto 0 auto;
->>>>>>> refactor
 }
 
 .aligntext {
