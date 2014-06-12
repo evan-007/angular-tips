@@ -1,31 +1,30 @@
-<div class="left-block top" ng-controller='tipCtrl'>
-			<h2>Enter the Meal Details</h2>
-			<form name="inputForm" ng-submit='inputForm.$valid && setData()' novalidate>
-				<label for="mealprice">Base Meal Price: $</label>
-				<input type="number" class="mealprice"name="mealprice" ng-model="input.mealPrice" placeholder="0.00" required><br>
-				<label for="mealprice">Tax Rate: %</label>
-				<input type="number" name="taxrate" ng-model="input.taxRate" placeholder="0" class="percent" required><br>
-				<label for="tippercentage">Tip Percentage: %</label>
-				<input type="number" name="tippercentage" ng-model="input.tipPercentage" placeholder="0" class="percent" required><br>
-				<span ng-if="inputForm.mealprice.$dirty && inputForm.mealprice.$invalid || inputForm.mealprice.$pristine">Fill out meal price</span><br>
-				<span ng-if="inputForm.taxrate.$dirty && inputForm.taxrate.$invalid || inputForm.taxrate.$pristine">Fill out taxrate</span><br>
-				<span ng-if="inputForm.tippercentage.$invalid || inputForm.tippercentage.$pristine">Fill out tip percentage</span><br>
-				<div class="buttons">
-					<button type="submit" text="Submit" id="submit">Submit</button>
-					<button type="button" ng-click='clear(); preventDefault();'>Cancel</button>
-				</div>
-			</form>
-		</div>
+<div ng-controller='tipCtrl'>
+  <div class="left-block top">
+	  		<h2>Enter the Meal Details</h2>
+		  	<form name="inputForm" ng-submit='inputForm.$valid && setData()' novalidate>
+			  	<label for="mealprice">Base Meal Price: $</label>
+			  	<input type="number" class="mealprice"name="mealprice" ng-model="input.mealPrice" placeholder="0.00" required><br>
+				  <label for="mealprice">Tax Rate: %</label>
+  				<input type="number" name="taxrate" ng-model="input.taxRate" placeholder="0" class="percent" required><br>
+	  			<label for="tippercentage">Tip Percentage: %</label>
+		  		<input type="number" name="tippercentage" ng-model="input.tipPercentage" placeholder="0" class="percent" required><br>
+			  	<span ng-if="inputForm.mealprice.$dirty && inputForm.mealprice.$invalid || inputForm.mealprice.$pristine">Fill out meal price</span><br>
+  				<span ng-if="inputForm.taxrate.$dirty && inputForm.taxrate.$invalid || inputForm.taxrate.$pristine">Fill out taxrate</span><br>
+	  			<span ng-if="inputForm.tippercentage.$invalid || inputForm.tippercentage.$pristine">Fill out tip percentage</span><br>
+		  		<div class="buttons">
+			  		<button type="submit" text="Submit" id="submit">Submit</button>
+				  	<button type="button" ng-click='clear(); preventDefault();'>Cancel</button>
+  				</div>
+	  		</form>
+		  </div>
 
-<div class='right-block bottom'>
-	<h2>Customer Charges</h2>
-	<div ng-controller="resultsCtrl">
-		<div class="aligntext results">
-			Subtotal:{{output.subtotal | currency}}<br/>
-			Tip: {{output.tip | currency}}<br/>
-			<hr id='line'><br/>
-			Total: {{output.total | currency}}<br/>
-		</span>
-		</div>
-	</div>
+  <div class='right-block bottom'>
+	  <h2>Customer Charges</h2>
+  	<div class="aligntext results">
+	    Subtotal:{{output.subtotal | currency}}<br/>
+		  Tip: {{output.tip | currency}}<br/>
+  		<hr id='line'><br/>
+	  	Total: {{output.total | currency}}<br/>
+  	</div>
+  </div>
 </div>

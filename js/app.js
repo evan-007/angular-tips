@@ -15,84 +15,14 @@ angular.module('waitstaffCalc', ['ngRoute'])
 	.otherwise({redirectTo: '/'});
 })
 
-.controller('tipCtrl', function($scope, $rootScope){
-	$scope.clear = function(){
-		$scope.input = '';
-		$rootScope.$broadcast('clearOutput');
-	};
-	$scope.setData = function(){
-		console.log($scope.input);
-		$rootScope.$broadcast('input', $scope.input);
-	};
-	$scope.$on('clearAll', function(event, data){
-		$scope.input = '';
-	});
-})
-
-.controller('resultsCtrl', function($scope, $rootScope, tipData) {
-	$scope.output = {
-		subtotal: 0,
-		tip: 0,
-		total: 0
-	};
-	$scope.$on('input', function(event, data){
-		$scope.output = {
-			subtotal: (data.taxRate/100 * data.mealPrice) + data.mealPrice,
-			tip: (data.tipPercentage/100 * data.mealPrice),
-			total: ((data.taxRate/100 * data.mealPrice) + data.mealPrice) + ((data.tipPercentage/100 * data.mealPrice))
-		};
-		$rootScope.$broadcast('output', $scope.output);
-		$scope.tips = tipData;
-		$scope.tips.tip = $scope.output.tip;
-	});
-	$scope.$on('clearAll', function(event, data) {
-		$scope.output = {
-			subtotal: 0,
-			tip: 0,
-			total: 0
-		};
-	});
-
-	$scope.$on('clearOutput', function(event, data) {
-		$scope.output = {
-			subtotal: 0,
-			tip: 0,
-			total: 0
-		};
-	});
-})
-
-.controller('earningsCtrl', function($scope, tipData) {
-	$scope.tip = tipData;
-	$scope.earnings = {
-		tips: 0,
-		meals: 0,
-		average: 0
-	};
-	var count = 0;
-	var total = 0;
-	$scope.$on('output', function(event, data) {
-		total = total+data.tip;
-		count++;
-		$scope.earnings = {
-			tips: total,
-			meals: count,
-			average: total/count
-		};
-	});
-	$scope.$on('clearAll', function(event, data) {
-		$scope.earnings = {
-			meals: 0,
-			tips: 0,
-			average: 0
-		};
-	});
-})
-
-.controller('clearCtrl', function($scope, $rootScope){
-	$scope.clear = function() {
-		$rootScope.$broadcast('clearAll');
-	};
+.controller('tipCtrl', function($scope, tipData){
+  $scope.setData = function(){
+    $scope.output = {};
+    $scope.output.subtotal = ($scope.input.mealPrice + ($scope.input.mealPrice * $scope.input.taxRate/100));
+    console.log($scope.output.subtotal);
+    $scope.output.tip = ($scope.input.tipPercentage/100) *($scope.input.mealPrice);
+    $scope.output.total = $scope.output.tip + $scope.output.subtotal;
+  }
 })
 
 .service('tipData', function(){
