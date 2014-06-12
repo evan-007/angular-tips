@@ -6,6 +6,6 @@
 			Total Meals:{{earnings.meals | number}}<br/>
 			Average Tip Per Meal:{{earnings.average | currency}}<br/>
 		</div>
+    <button id="clear" ng-click='clearAll();'>Reset</button>
 	</div>
 </div>
-<button id="clear" ng-controller="clearCtrl" ng-click='clear()'>Reset</button>
