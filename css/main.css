@@ -123,13 +123,18 @@ input .ng-dirty.ng-invalid{
 	text-align: right;
 }
 
-.content-view.ng-enter, .contentView.ng-leave {
-  transition: .5s all linear;
+.content-view.ng-enter {
+  transition: .5s all linear .5s;
   position: relative;
 }
 
+.content-view.ng-leave {
+	transition: .5s all linear;
+	position: relative;
+}
+
 .content-view.ng-enter {
-  left: -100%;
+  left: -150%;
 }
 
 .content-view.ng-enter.ng-enter-active {
@@ -141,5 +146,5 @@ input .ng-dirty.ng-invalid{
 }
 
 .content-view.ng-leave.ng-leave-active {
-  right: 100%;
+  right: -100%;
 }
